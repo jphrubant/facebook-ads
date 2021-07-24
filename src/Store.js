@@ -23,6 +23,7 @@ export class Store extends Reflux.Store {
       }
     });
     this.setState({products});
+    console.log(this.state.products)
   }
 
   edit(ad) {

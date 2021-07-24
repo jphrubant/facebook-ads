@@ -6,12 +6,7 @@ export const Home = ({ products, actions }) => {
     <>
       <div className="products">
         {products.map((product) => {
-          const data = {
-            pathname: `/read/${product.id}`,
-            product: product,
-            actions: actions,
-          };
-          return <Product product={product} data={data} />;
+          return <Product product={product} actions={actions}/>;
         })}
       </div>
     </>

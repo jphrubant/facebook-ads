@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Read } from "./pages/Read";
+import { Create } from "./pages/Create";
 
 const Reflux = require("reflux");
 const { Store } = require("./Store");
@@ -22,6 +23,7 @@ export default class App extends Reflux.Component {
           <Switch>
             <Route exact path="/" render={() => <Home products={products} actions={Actions}  />} />
             <Route exact path="/read/:id" component={Read}/>
+            <Route exact path="/create" component={Create}/>
           </Switch>
         </Router>
       </div>

@@ -1,11 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Read = (props) => {
   const { actions, product } = props.location;
 
-  const doCreate = (ad) => {
-    actions.create(product.id, ad);
-  };
+  const linkData = {
+    pathname: `/create`,
+    id: product.id,
+    actions: actions,
+  }
 
   return (
     <>
@@ -17,7 +20,7 @@ export const Read = (props) => {
           return <p>{ad}</p>;
         })
       )}
-      <button onClick={() => doCreate("helloooooo")}>Create new ad</button>
+      <Link to={linkData}>Create new add</Link>
     </>
   );
 };

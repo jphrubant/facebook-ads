@@ -1,10 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const Product = ({ product, data }) => {
+export const Product = ({ product, actions}) => {
+  const linkData = {
+    pathname: `/read/${product.id}`,
+    product: product,
+    actions: actions,
+  };
   return (
     <div key={product.productName} className="product-card">
-      <Link to={data}>{product.productName}</Link>
+      <Link to={linkData}>{product.productName}</Link>
       <p>{product.productDescription}</p>
       <img src={product.productImage} alt="product"></img>
       <aside>{product.price}</aside>
