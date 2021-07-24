@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { v4 as uuid } from 'uuid';
 
 export const Create = (props) => {
   const { actions, id } = props.location;
@@ -18,7 +19,10 @@ export const Create = (props) => {
 
   const doCreate = (e) => {
     e.preventDefault();
-    actions.create(id, {headline: state.headline, description: state.description});
+    const id = uuid();
+    actions.create(id, {id, headline: state.headline, description: state.description});
+    console.log(props)
+    props.history.push('/');
   };
 
   return (

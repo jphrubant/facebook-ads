@@ -8,7 +8,7 @@ export const Read = (props) => {
     pathname: `/create`,
     id: product.id,
     actions: actions,
-  }
+  };
 
   return (
     <>
@@ -17,7 +17,12 @@ export const Read = (props) => {
         <p>This product does not have any adds yet</p>
       ) : (
         product.ads.map((ad) => {
-          return <p>{ad}</p>;
+          return (
+            <div key={ad.id}>
+              <h1>{ad.headline}</h1>
+              <h1>{ad.description}</h1>
+            </div>
+          );
         })
       )}
       <Link to={linkData}>Create new add</Link>
