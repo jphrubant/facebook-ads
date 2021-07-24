@@ -1,26 +1,26 @@
-import React, { useState } from "react";
-import { v4 as uuid } from 'uuid';
+import React, { useState, useEffect } from "react";
 
-export const Create = (props) => {
-  const { actions, product } = props.location;
+export const Update = (props) => {
+  const { actions, product, ad } = props.location;
   const [state, setState] = useState({ headline: "", description: "" });
+
+  useEffect(() => {
+    setState({ headline: ad.headline, description: ad.description });
+  }, []);
 
   const handleChange = (e) => {
     const value = e.target.value;
     setState({ ...state, [e.target.name]: value });
   };
 
-  const doCreate = (e) => {
+  const doUpdate = (e) => {
     e.preventDefault();
-    const adId = uuid();
-    const id = product.id;
-    actions.create(id, {adId: adId, headline: state.headline, description: state.description});
-    props.history.push('/');
+    actions.update(product, ad)
   };
 
   return (
     <>
-      <h1>HI CREATE</h1>
+      <h1>HI Update</h1>
       <form>
         <label htmlFor="headline">Enter headline</label>
         <input
@@ -33,10 +33,10 @@ export const Create = (props) => {
         <textarea
           id="description"
           name="description"
-          value={state.descripion}
+          value={state.description}
           onChange={handleChange}
         ></textarea>
-        <button onClick={(e) => doCreate(e)}>Save Ad</button>
+        <button onClick={(e) => doUpdate(e)}>Update Ad</button>
       </form>
     </>
   );

@@ -4,7 +4,13 @@ import { Link } from "react-router-dom";
 export const Read = (props) => {
   const { actions, product } = props.location;
 
-  const linkData = {
+  // const updateLinkData = {
+  //   pathname: `/edit`,
+  //   product,
+  //   actions,
+  // }
+
+  const createLinkData = {
     pathname: `/create`,
     product,
     actions,
@@ -27,12 +33,13 @@ export const Read = (props) => {
             <div key={ad.adId}>
               <h1>{ad.headline}</h1>
               <p>{ad.description}</p>
+              <Link to={{pathname: "/update", product, ad, actions}}> Edit Ad</Link>
               <button onClick={(e) => doDelete(e, product.id, ad.adId)}>Delete ad</button>
             </div>
           );
         })
       )}
-      <Link to={linkData}>Create new add</Link>
+      <Link to={createLinkData}>Create new add</Link>
     </>
   );
 };

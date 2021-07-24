@@ -1,7 +1,7 @@
 import shopData from "./data.json";
 const Reflux = require("reflux");
 
-export const Actions = Reflux.createActions(["create", "delete"]);
+export const Actions = Reflux.createActions(["create", "update", "delete"]);
 
 export class Store extends Reflux.Store {
   constructor() {
@@ -23,6 +23,10 @@ export class Store extends Reflux.Store {
       }
     });
     this.setState({ products });
+  }
+
+  update(product, ad) {
+
   }
 
   delete(productId, adId) {
