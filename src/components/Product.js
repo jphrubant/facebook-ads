@@ -8,7 +8,7 @@ export const Product = ({ product, actions}) => {
     actions: actions,
   };
   return (
-    <div key={product.productName} className="product-card">
+    <div className="product-card">
       <Link to={linkData}>{product.productName}</Link>
       <p>{product.productDescription}</p>
       <img src={product.productImage} alt="product"></img>

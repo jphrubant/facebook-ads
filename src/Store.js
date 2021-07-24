@@ -1,7 +1,7 @@
 import shopData from "./data.json";
 const Reflux = require("reflux");
 
-export const Actions = Reflux.createActions(["create", "edit"]);
+export const Actions = Reflux.createActions(["create", "delete"]);
 
 export class Store extends Reflux.Store {
   constructor() {
@@ -16,17 +16,27 @@ export class Store extends Reflux.Store {
   create(id, ad) {
     const products = this.state.products.map((product) => {
       if (product.id === parseInt(id)) {
-        product.ads = [...product.ads, ad]
+        product.ads = [...product.ads, ad];
         return product;
       } else {
         return product;
       }
     });
-    this.setState({products});
-    console.log(this.state.products)
+    this.setState({ products });
   }
 
-  edit(ad) {
-    console.log("edit", ad);
+  delete(productId, adId) {
+    const products = this.state.products.map((product) => {
+      if ((product.id === parseInt(productId))) {
+        const ads = product.ads.filter(ad => {
+         return ad.adId !== adId
+        });
+        product.ads = ads;
+        return product;
+      } else {
+        return product;
+      }
+    });
+    this.setState({ products });
   }
 }

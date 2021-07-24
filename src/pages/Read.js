@@ -6,9 +6,15 @@ export const Read = (props) => {
 
   const linkData = {
     pathname: `/create`,
-    id: product.id,
-    actions: actions,
+    product,
+    actions,
   };
+
+  const doDelete = (e, productId, adId) => {
+    e.preventDefault();
+    actions.delete(productId, adId);
+    props.history.push('/');
+  }
 
   return (
     <>
@@ -18,9 +24,10 @@ export const Read = (props) => {
       ) : (
         product.ads.map((ad) => {
           return (
-            <div key={ad.id}>
+            <div key={ad.adId}>
               <h1>{ad.headline}</h1>
-              <h1>{ad.description}</h1>
+              <p>{ad.description}</p>
+              <button onClick={(e) => doDelete(e, product.id, ad.adId)}>Delete ad</button>
             </div>
           );
         })

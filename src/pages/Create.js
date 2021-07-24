@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { v4 as uuid } from 'uuid';
 
 export const Create = (props) => {
-  const { actions, id } = props.location;
+  const { actions, product } = props.location;
   const [state, setState] = useState({ headline: "", description: "" });
   // const [image, setImage] = useState(null);
 
@@ -19,9 +19,9 @@ export const Create = (props) => {
 
   const doCreate = (e) => {
     e.preventDefault();
-    const id = uuid();
-    actions.create(id, {id, headline: state.headline, description: state.description});
-    console.log(props)
+    const adId = uuid();
+    const id = product.id;
+    actions.create(id, {adId: adId, headline: state.headline, description: state.description});
     props.history.push('/');
   };
 
@@ -31,7 +31,7 @@ export const Create = (props) => {
       <form>
         {/* <label htmlFor="image">Select image</label>
         <input type="file" id="img" name="image" accept="image/*" onChange={handleImageUpload}></input> */}
-        <input type="submit"></input>
+        {/* <input type="submit"></input> */}
         <label htmlFor="headline">Enter headline</label>
         <input
           id="headline"
