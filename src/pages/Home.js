@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Product } from "./../components/Product";
 
 export const Home = ({ products, actions }) => {
   return (
@@ -7,18 +7,11 @@ export const Home = ({ products, actions }) => {
       <div className="products">
         {products.map((product) => {
           const data = {
-            pathname:  `/read/${product.id}`,
+            pathname: `/read/${product.id}`,
             product: product,
-            actions: actions
-          }
-          return (
-            <div key={product.productName} className="product-card">
-              <Link to={data}>{product.productName}</Link>
-              <p>{product.productDescription}</p>
-              <img src={product.productImage} alt="product"></img>
-              <aside>{product.price}</aside>
-            </div>
-          );
+            actions: actions,
+          };
+          return <Product product={product} data={data} />;
         })}
       </div>
     </>
