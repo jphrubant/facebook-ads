@@ -27,9 +27,9 @@ export class Store extends Reflux.Store {
 
   delete(productId, adId) {
     const products = this.state.products.map((product) => {
-      if ((product.id === parseInt(productId))) {
-        const ads = product.ads.filter(ad => {
-         return ad.adId !== adId
+      if (product.id === parseInt(productId)) {
+        const ads = product.ads.filter((ad) => {
+          return ad.adId !== adId;
         });
         product.ads = ads;
         return product;
