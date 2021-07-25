@@ -17,10 +17,10 @@ export const Read = (props) => {
   };
 
   return (
-    <>
-      <h1>{product.productName}</h1>
+    <div className="ads">
+      <h1 className="title">{product.productName}</h1>
       {product.ads.length === 0 ? (
-        <p>This product does not have any adds yet</p>
+        <p className="no-ads">This product does not have any adds yet 😔</p>
       ) : (
         product.ads.map((ad) => {
           const updateLinkData = {
@@ -33,7 +33,10 @@ export const Read = (props) => {
             <div key={ad.adId}>
               <h1>{ad.headline}</h1>
               <p>{ad.description}</p>
-              <Link to={updateLinkData}> Update Ad</Link>
+              <Link className="link" to={updateLinkData}>
+                {" "}
+                Update Ad
+              </Link>
               <button onClick={() => setShowModal(true)}>Delete ad</button>
               {showModal && (
                 <div>
@@ -48,7 +51,9 @@ export const Read = (props) => {
           );
         })
       )}
-      <Link to={createLinkData}>Create new add</Link>
-    </>
+      <Link className="link" to={createLinkData}>
+        Create new add 📝
+      </Link>
+    </div>
   );
 };

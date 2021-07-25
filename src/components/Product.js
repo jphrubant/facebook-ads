@@ -7,12 +7,15 @@ export const Product = ({ product, actions}) => {
     product: product,
     actions: actions,
   };
+
+  const price = product.price.toFixed(2);
+
   return (
     <div className="product-card">
-      <Link to={linkData}>{product.productName}</Link>
-      <p>{product.productDescription}</p>
-      <img src={product.productImage} alt="product"></img>
-      <aside>{product.price}</aside>
+      <Link className="link product-name" to={linkData}>{product.productName}</Link>
+      <p className="product-description">{product.productDescription}</p>
+      <img className="product-image" src={product.productImage} alt="product"></img>
+      <aside className="product-price">€{price}</aside>
     </div>
   );
 };

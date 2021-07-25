@@ -5,7 +5,11 @@ export const Update = (props) => {
   const [state, setState] = useState({ headline: "", description: "" });
 
   useEffect(() => {
-    setState({ adId: ad.adId, headline: ad.headline, description: ad.description });
+    setState({
+      adId: ad.adId,
+      headline: ad.headline,
+      description: ad.description,
+    });
   }, []);
 
   const handleChange = (e) => {
@@ -16,29 +20,35 @@ export const Update = (props) => {
   const doUpdate = (e) => {
     e.preventDefault();
     actions.update(product, state);
-    props.history.push('/');
+    props.history.push("/");
   };
 
   return (
-    <>
-      <h1>HI Update</h1>
-      <form>
-        <label htmlFor="headline">Enter headline</label>
+    <div className="ad-form">
+      <h1 className="title">Update ad</h1>
+      <form className="form">
+      <fieldset>
+        <label htmlFor="headline">Update headline:</label>
         <input
           id="headline"
           name="headline"
           value={state.headline}
           onChange={handleChange}
         ></input>
-        <label htmlFor="description">Enter description</label>
+        </fieldset>
+        <fieldset>
+        <label htmlFor="description">Update description:</label>
         <textarea
           id="description"
           name="description"
           value={state.description}
           onChange={handleChange}
         ></textarea>
-        <button onClick={(e) => doUpdate(e)}>Update Ad</button>
+        </fieldset>
+        <button className="form-button" onClick={(e) => doUpdate(e)}>
+          Update Ad
+        </button>
       </form>
-    </>
+    </div>
   );
 };

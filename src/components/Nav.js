@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 export const Nav = ({title}) => {
   return (
-    <div className="product-card">
-      <h1>{title}</h1>
-      <Link to="/">Home</Link>
+    <div className="nav">
+      <h1 className="title">{title}</h1>
+      <Link className="link" to="/">Home</Link>
     </div>
   );
 };
