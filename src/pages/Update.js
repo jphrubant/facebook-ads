@@ -10,7 +10,7 @@ export const Update = (props) => {
       headline: ad.headline,
       description: ad.description,
     });
-  }, []);
+  }, [ad]);
 
   const handleChange = (e) => {
     const value = e.target.value;
