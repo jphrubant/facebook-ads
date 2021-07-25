@@ -11,7 +11,6 @@ export class Store extends Reflux.Store {
       products: shopData.products,
     };
     this.listenables = Actions;
-    console.log(this.state);
   }
 
   create(id, ad) {
