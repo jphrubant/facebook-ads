@@ -159,6 +159,14 @@ body {
 
 /* - HOME - */
 
+.success-message {
+  text-align: center;
+  background-color:powderblue;
+  padding: 5px 0;
+  position:relative;
+  width: 100%;
+}
+
 .products {
   display: flex;
   flex-wrap: wrap;

@@ -5,8 +5,8 @@ export const Home = ({ products, actions, message }) => {
   return (
     <>
       {message && (
-        <div>
-          {message}
+        <div className="success-message">
+          - {message} -
         </div>
       )}
       <div className="products">
