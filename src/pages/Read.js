@@ -44,9 +44,7 @@ export const Read = (props) => {
 
                 <h1 className="ad-headline">{ad.headline}</h1>
                 <p className="ad-description">{ad.description}</p>
-                <button className="ad-cta">
-                  Download
-                </button>
+                <button className="ad-cta">Download</button>
               </div>
               <div className="ad-controls">
                 <button

@@ -4,9 +4,7 @@ import { Product } from "./../components/Product";
 export const Home = ({ products, actions, message }) => {
   return (
     <>
-      {message && (
-        <div className="success-message">- {message} -</div>
-      )}
+      {message && <div className="success-message">- {message} -</div>}
       <div className="products">
         {products.map((product) => {
           return (
