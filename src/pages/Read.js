@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import defaultImage from "./default-image.png"
+import defaultImage from "./default-image.png";
 
 export const Read = (props) => {
   const { actions, product } = props.location;
@@ -9,7 +9,7 @@ export const Read = (props) => {
     pathname: `/create`,
     product,
     actions,
-  };  
+  };
 
   const doDelete = (e, productId, adId) => {
     e.preventDefault();
@@ -34,23 +34,39 @@ export const Read = (props) => {
             ad,
           };
           return (
-            <div className="ad" key={ad.adId}>
-              <img src={defaultImage} alt="placeholder"/>
-              <h1>{ad.headline}</h1>
-              <p>{ad.description}</p>
-              <button
-                 className="button secondary"
-                onClick={() =>
-                  setModal({ show: true, productId: product.id, adId: ad.adId })
-                }
-              >
-                Delete ad
-              </button>
-              <Link  className="button primary" to={updateLinkData}>
-                {" "}
-                Update Ad
-              </Link>
-            </div>
+            <>
+              <div className="ad" key={ad.adId}>
+                <img
+                  className="ad-image"
+                  src={defaultImage}
+                  alt="placeholder"
+                />
+
+                <h1 className="ad-headline">{ad.headline}</h1>
+                <p className="ad-description">{ad.description}</p>
+                <button className="ad-cta">
+                  Download
+                </button>
+              </div>
+              <div className="ad-controls">
+                <button
+                  className="button secondary"
+                  onClick={() =>
+                    setModal({
+                      show: true,
+                      productId: product.id,
+                      adId: ad.adId,
+                    })
+                  }
+                >
+                  Delete ad
+                </button>
+                <Link className="button primary" to={updateLinkData}>
+                  {" "}
+                  Update Ad
+                </Link>
+              </div>
+            </>
           );
         })
       )}

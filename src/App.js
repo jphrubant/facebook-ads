@@ -29,7 +29,7 @@ export default class App extends Reflux.Component {
               path="/"
               render={() => <Home products={products} actions={Actions} message={successMessage} />}
             />
-            <Route exact path="/read/:productId" component={Read} />
+            <Route exact path="/read" component={Read} />
             <Route exact path="/create" component={Create} />
             <Route exact path="/update" component={Update} />
           </Switch>

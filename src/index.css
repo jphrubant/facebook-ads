@@ -141,18 +141,20 @@ body {
   padding: 0 50px;
 }
 
-.title {
-  text-align: left;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.title-no-margin {
+.nav-title {
   text-align: left;
   font-weight: bold;
 }
 
 /* - HOME - */
+
+.title {
+  font-size: 18px;
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
 
 .success-message {
   text-align: center;
@@ -208,7 +210,34 @@ body {
 }
 
 .ad {
+  margin: 20px 0 10px 0;
   border: 1px black solid;
+  text-align: left;
+  position: relative;
+}
+
+.ad-image {
+  max-width: 300px;
+}
+
+.ad-headline {
+  font-size: 18px;
+  padding: 10px 0 0 20px;
+  max-width: 200px
+}
+
+.ad-description {
+  font-size: 14px;
+  padding: 10px 0 10px 20px;
+  max-width: 200px
+}
+
+.ad-footer {
+  display: flex;
+}
+
+.ad-controls{
+  display: flex;
 }
 
 
@@ -280,6 +309,7 @@ textarea {
   font-size: 16px;
   text-decoration: none;
   color: black;
+  margin: 0 5px;
 }
 
 .primary{
@@ -302,4 +332,10 @@ textarea {
 
 .link:hover {
   border-bottom: 1px black solid;
+}
+
+.ad-cta {
+  position: absolute;
+  right: 15px;
+  top:215px;
 }
