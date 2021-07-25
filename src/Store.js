@@ -9,6 +9,7 @@ export class Store extends Reflux.Store {
     this.state = {
       storeName: shopData.name,
       products: shopData.products,
+      successMessage: ""
     };
     this.listenables = Actions;
   }
@@ -22,7 +23,7 @@ export class Store extends Reflux.Store {
         return product;
       }
     });
-    this.setState({ products });
+    this.setState({ products, successMessage: "Ad created successfully"  });
   }
 
   update(product, ad) {
@@ -38,7 +39,7 @@ export class Store extends Reflux.Store {
         return prod;
       }
     });
-    this.setState({ products });
+    this.setState({ products, successMessage: "Ad updated successfully" });
   }
 
   delete(productId, adId) {
@@ -53,6 +54,6 @@ export class Store extends Reflux.Store {
         return product;
       }
     });
-    this.setState({ products });
+    this.setState({ products, successMessage: "Ad deleted successfully" });
   }
 }
