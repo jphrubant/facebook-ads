@@ -144,17 +144,7 @@ body {
 .title {
   text-align: left;
   font-weight: bold;
-}
-
-.link {
-  text-decoration: none;
-  color: black;
-  padding: 5px 10px;
-  max-width: 140px;
-}
-
-.link:hover {
-  border-bottom: 1px black solid;
+  margin-bottom: 20px;
 }
 
 /* - HOME - */
@@ -163,7 +153,7 @@ body {
   text-align: center;
   background-color:powderblue;
   padding: 5px 0;
-  position:relative;
+  position:absolute;
   width: 100%;
 }
 
@@ -196,6 +186,14 @@ body {
 
 /* - READ ADS - */
 
+.ads-header {
+  border: 1px black solid;
+}
+
+.no-ads {
+  margin: 50px 0;
+}
+
 .ads {
   display: flex;
   flex-direction: column;
@@ -204,9 +202,10 @@ body {
   text-align: center;
 }
 
-.no-ads {
-  margin: 50px 0;
+.ad {
+  border: 1px black solid;
 }
+
 
 /* - AD FORMS -  */
 
@@ -244,16 +243,6 @@ textarea {
   font-size: 16px;
 }
 
-.form-button {
-  padding: 12px 0;
-  text-transform: uppercase;
-  cursor: pointer;
-  background-color: coral;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-}
-
 /* - DELETE MODAL -  */
 
 .delete-modal {
@@ -274,16 +263,38 @@ textarea {
   justify-content: space-around;
 }
 
-.modal-button {
-  width: 100px;
-}
+/* - CTAS - */
 
-.button-no {
-  background-color: white;
-  padding: 12px 0;
+.button {
   text-transform: uppercase;
   cursor: pointer;
   font-weight: bold;
+  border: none;
   border-radius: 5px;
+  width: 125px;
+  font-size: 16px;
+  text-decoration: none;
+  color: black;
+}
+
+.primary{
+  padding: 12px 6px;
+  background-color: coral;
+}
+
+.secondary{
+  padding: 10px 6px;
+  background-color: white;
   border: 1px solid black;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  padding: 5px 0;
+  max-width: 140px;
+}
+
+.link:hover {
+  border-bottom: 1px black solid;
 }

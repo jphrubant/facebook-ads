@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import defaultImage from "./default-image.png"
 
 export const Read = (props) => {
   const { actions, product } = props.location;
@@ -19,6 +20,9 @@ export const Read = (props) => {
   return (
     <div className="ads">
       <h1 className="title">{product.productName}</h1>
+      <Link className="button primary" to={createLinkData}>
+        Create add
+      </Link>
       {product.ads.length === 0 ? (
         <p className="no-ads">This product does not have any adds yet 😔</p>
       ) : (
@@ -30,20 +34,22 @@ export const Read = (props) => {
             ad,
           };
           return (
-            <div key={ad.adId}>
+            <div className="ad" key={ad.adId}>
+              <img src={defaultImage} alt="placeholder"/>
               <h1>{ad.headline}</h1>
               <p>{ad.description}</p>
-              <Link className="link" to={updateLinkData}>
-                {" "}
-                Update Ad
-              </Link>
               <button
+                 className="button secondary"
                 onClick={() =>
                   setModal({ show: true, productId: product.id, adId: ad.adId })
                 }
               >
                 Delete ad
               </button>
+              <Link  className="button primary" to={updateLinkData}>
+                {" "}
+                Update Ad
+              </Link>
             </div>
           );
         })
@@ -53,13 +59,13 @@ export const Read = (props) => {
           <p className="modal-text">Are you sure you wish to delete this ad?</p>
           <div className="modal-controls">
             <button
-              className="modal-button button-no"
+              className="button secondary"
               onClick={() => setModal({ show: false, productId: "", adId: "" })}
             >
               No
             </button>
             <button
-              className="modal-button form-button"
+              className="button primary"
               onClick={(e) => doDelete(e, modal.productId, modal.adId)}
             >
               Yes
@@ -67,9 +73,6 @@ export const Read = (props) => {
           </div>
         </div>
       )}
-      <Link className="link" to={createLinkData}>
-        Create new add 📝
-      </Link>
     </div>
   );
 };

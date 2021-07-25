@@ -43,7 +43,7 @@ export const Create = (props) => {
             onChange={handleChange}
           ></textarea>
         </fieldset>
-        <button className="form-button" onClick={(e) => doCreate(e)}>
+        <button className="button primary" onClick={(e) => doCreate(e)}>
           Create Ad
         </button>
       </form>

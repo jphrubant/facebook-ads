@@ -45,7 +45,7 @@ export const Update = (props) => {
           onChange={handleChange}
         ></textarea>
         </fieldset>
-        <button className="form-button" onClick={(e) => doUpdate(e)}>
+        <button className="button primary" onClick={(e) => doUpdate(e)}>
           Update Ad
         </button>
       </form>
