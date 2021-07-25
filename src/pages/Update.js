@@ -26,26 +26,30 @@ export const Update = (props) => {
   return (
     <div className="ad-form">
       <h1 className="title">Update ad</h1>
-      <form className="form">
-      <fieldset>
-        <label htmlFor="headline">Update headline:</label>
-        <input
-          id="headline"
-          name="headline"
-          value={state.headline}
-          onChange={handleChange}
-        ></input>
+      <form onSubmit={(e) => doUpdate(e)} className="form">
+        <fieldset>
+          <label htmlFor="headline">Update headline:</label>
+          <input
+            id="headline"
+            name="headline"
+            value={state.headline}
+            onChange={handleChange}
+            type="text"
+            required
+          ></input>
         </fieldset>
         <fieldset>
-        <label htmlFor="description">Update description:</label>
-        <textarea
-          id="description"
-          name="description"
-          value={state.description}
-          onChange={handleChange}
-        ></textarea>
+          <label htmlFor="description">Update description:</label>
+          <textarea
+            id="description"
+            name="description"
+            value={state.description}
+            onChange={handleChange}
+            type="text"
+            required
+          ></textarea>
         </fieldset>
-        <button className="button primary" onClick={(e) => doUpdate(e)}>
+        <button className="button primary" type="submit">
           Update Ad
         </button>
       </form>

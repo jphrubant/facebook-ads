@@ -24,7 +24,7 @@ export const Create = (props) => {
   return (
     <div className="ad-form">
       <h1 className="title">Create a new ad</h1>
-      <form className="form">
+      <form onSubmit={(e) => doCreate(e)} className="form">
         <fieldset>
           <label htmlFor="headline">Enter headline:</label>
           <input
@@ -32,6 +32,8 @@ export const Create = (props) => {
             name="headline"
             value={state.headline}
             onChange={handleChange}
+            type="text"
+            required
           ></input>
         </fieldset>
         <fieldset>
@@ -41,9 +43,11 @@ export const Create = (props) => {
             name="description"
             value={state.descripion}
             onChange={handleChange}
+            type="text"
+            required
           ></textarea>
         </fieldset>
-        <button className="button primary" onClick={(e) => doCreate(e)}>
+        <button className="button primary" type="submit">
           Create Ad
         </button>
       </form>

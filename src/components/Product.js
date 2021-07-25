@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const Product = ({ product, actions}) => {
+export const Product = ({ product,actions }) => {
   const linkData = {
-    pathname: `/read`,
+    pathname: `/read/${product.id}`,
     product: product,
     actions: actions,
   };

@@ -147,6 +147,11 @@ body {
   margin-bottom: 20px;
 }
 
+.title-no-margin {
+  text-align: left;
+  font-weight: bold;
+}
+
 /* - HOME - */
 
 .success-message {

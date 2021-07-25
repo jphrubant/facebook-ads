@@ -9,7 +9,7 @@ export const Read = (props) => {
     pathname: `/create`,
     product,
     actions,
-  };
+  };  
 
   const doDelete = (e, productId, adId) => {
     e.preventDefault();
