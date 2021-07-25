@@ -11,6 +11,7 @@ export class Store extends Reflux.Store {
       products: shopData.products,
     };
     this.listenables = Actions;
+    console.log(this.state);
   }
 
   create(id, ad) {
@@ -26,7 +27,19 @@ export class Store extends Reflux.Store {
   }
 
   update(product, ad) {
-
+    const products = this.state.products.map((prod) => {
+      if (prod.id === parseInt(product.id)) {
+        const ads = product.ads.filter((a) => {
+          return a.adId !== ad.adId;
+        });
+        ads.push(ad);
+        prod.ads = ads;
+        return prod;
+      } else {
+        return prod;
+      }
+    });
+    this.setState({ products });
   }
 
   delete(productId, adId) {

@@ -5,7 +5,7 @@ export const Update = (props) => {
   const [state, setState] = useState({ headline: "", description: "" });
 
   useEffect(() => {
-    setState({ headline: ad.headline, description: ad.description });
+    setState({ adId: ad.adId, headline: ad.headline, description: ad.description });
   }, []);
 
   const handleChange = (e) => {
@@ -15,7 +15,8 @@ export const Update = (props) => {
 
   const doUpdate = (e) => {
     e.preventDefault();
-    actions.update(product, ad)
+    actions.update(product, state);
+    props.history.push('/');
   };
 
   return (
