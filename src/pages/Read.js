@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export const Read = (props) => {
   const { actions, product } = props.location;
+  const [showModal, setShowModal] = useState(false);
   const createLinkData = {
     pathname: `/create`,
     product,
@@ -33,9 +34,16 @@ export const Read = (props) => {
               <h1>{ad.headline}</h1>
               <p>{ad.description}</p>
               <Link to={updateLinkData}> Update Ad</Link>
-              <button onClick={(e) => doDelete(e, product.id, ad.adId)}>
-                Delete ad
-              </button>
+              <button onClick={() => setShowModal(true)}>Delete ad</button>
+              {showModal && (
+                <div>
+                  <p>Are you sure you wish to delete this ad?</p>
+                  <button onClick={() => setShowModal(false)}>NO</button>
+                  <button onClick={(e) => doDelete(e, product.id, ad.adId)}>
+                    YES
+                  </button>
+                </div>
+              )}
             </div>
           );
         })
