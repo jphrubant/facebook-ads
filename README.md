@@ -6,7 +6,7 @@ Facebook ad maker is a web app allowing the user to create Facebook ads. The app
 
 Ingredient Finder can be run in development using the command `npm start`
 
-The app is also deployed via Netlify and [can be accessed here](https://wizardly-shirley-9d09d9.netlify.app/)
+The app is also deployed via Netlify and [can be accessed here](https://stoic-wing-8de258.netlify.app/)
 
 ## User Stories:
 
