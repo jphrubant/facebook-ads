@@ -130,6 +130,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* - NAV -  */
+
 .nav {
   display: flex;
   align-items: center;
@@ -155,6 +157,8 @@ body {
   border-bottom: 1px black solid;
 }
 
+/* - HOME - */
+
 .products {
   display: flex;
   flex-wrap: wrap;
@@ -173,7 +177,7 @@ body {
   padding-left: 0;
 }
 
-.product-description{
+.product-description {
   margin: 20px 0;
   line-height: 1.4;
 }
@@ -181,6 +185,8 @@ body {
 .product-image {
   max-width: 100%;
 }
+
+/* - READ ADS - */
 
 .ads {
   display: flex;
@@ -190,11 +196,13 @@ body {
   text-align: center;
 }
 
-.no-ads{
+.no-ads {
   margin: 50px 0;
 }
 
-.ad-form{
+/* - AD FORMS -  */
+
+.ad-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -208,13 +216,13 @@ body {
   margin: 20px 0;
 }
 
-fieldset{
+fieldset {
   display: flex;
   flex-direction: column;
   margin: 20px 0;
 }
 
-label{
+label {
   margin-bottom: 10px;
 }
 
@@ -228,7 +236,7 @@ textarea {
   font-size: 16px;
 }
 
-.form-button{
+.form-button {
   padding: 12px 0;
   text-transform: uppercase;
   cursor: pointer;
@@ -238,6 +246,36 @@ textarea {
   border-radius: 5px;
 }
 
+/* - DELETE MODAL -  */
 
+.delete-modal {
+  position: absolute;
+  border: 1px solid coral;
+  border-radius: 5px;
+  background-color: white;
+  padding: 50px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
 
+.modal-text {
+  margin-bottom: 20px;
+}
 
+.modal-controls {
+  display: flex;
+  justify-content: space-around;
+}
+
+.modal-button {
+  width: 100px;
+}
+
+.button-no {
+  background-color: white;
+  padding: 12px 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1px solid black;
+}

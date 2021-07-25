@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Read = (props) => {
   const { actions, product } = props.location;
-  const [showModal, setShowModal] = useState(false);
+  const [modal, setModal] = useState({ show: false, productId: "", adId: "" });
   const createLinkData = {
     pathname: `/create`,
     product,
@@ -37,19 +37,35 @@ export const Read = (props) => {
                 {" "}
                 Update Ad
               </Link>
-              <button onClick={() => setShowModal(true)}>Delete ad</button>
-              {showModal && (
-                <div>
-                  <p>Are you sure you wish to delete this ad?</p>
-                  <button onClick={() => setShowModal(false)}>NO</button>
-                  <button onClick={(e) => doDelete(e, product.id, ad.adId)}>
-                    YES
-                  </button>
-                </div>
-              )}
+              <button
+                onClick={() =>
+                  setModal({ show: true, productId: product.id, adId: ad.adId })
+                }
+              >
+                Delete ad
+              </button>
             </div>
           );
         })
+      )}
+      {modal.show === true && (
+        <div className="delete-modal">
+          <p className="modal-text">Are you sure you wish to delete this ad?</p>
+          <div className="modal-controls">
+            <button
+              className="modal-button button-no"
+              onClick={() => setModal({ show: false, productId: "", adId: "" })}
+            >
+              No
+            </button>
+            <button
+              className="modal-button form-button"
+              onClick={(e) => doDelete(e, modal.productId, modal.adId)}
+            >
+              Yes
+            </button>
+          </div>
+        </div>
       )}
       <Link className="link" to={createLinkData}>
         Create new add 📝
