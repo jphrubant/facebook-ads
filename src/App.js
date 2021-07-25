@@ -28,7 +28,7 @@ export default class App extends Reflux.Component {
               path="/"
               render={() => <Home products={products} actions={Actions} />}
             />
-            <Route exact path="/read/:id" component={Read} />
+            <Route exact path="/read" component={Read} />
             <Route exact path="/create" component={Create} />
             <Route exact path="/update" component={Update} />
           </Switch>

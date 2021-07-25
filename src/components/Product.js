@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Product = ({ product, actions}) => {
   const linkData = {
-    pathname: `/read/${product.id}`,
+    pathname: `/read`,
     product: product,
     actions: actions,
   };

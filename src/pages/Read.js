@@ -3,13 +3,6 @@ import { Link } from "react-router-dom";
 
 export const Read = (props) => {
   const { actions, product } = props.location;
-
-  // const updateLinkData = {
-  //   pathname: `/edit`,
-  //   product,
-  //   actions,
-  // }
-
   const createLinkData = {
     pathname: `/create`,
     product,
@@ -19,8 +12,8 @@ export const Read = (props) => {
   const doDelete = (e, productId, adId) => {
     e.preventDefault();
     actions.delete(productId, adId);
-    props.history.push('/');
-  }
+    props.history.push("/");
+  };
 
   return (
     <>
@@ -29,12 +22,20 @@ export const Read = (props) => {
         <p>This product does not have any adds yet</p>
       ) : (
         product.ads.map((ad) => {
+          const updateLinkData = {
+            pathname: `/update`,
+            product,
+            actions,
+            ad,
+          };
           return (
             <div key={ad.adId}>
               <h1>{ad.headline}</h1>
               <p>{ad.description}</p>
-              <Link to={{pathname: "/update", product, ad, actions}}> Edit Ad</Link>
-              <button onClick={(e) => doDelete(e, product.id, ad.adId)}>Delete ad</button>
+              <Link to={updateLinkData}> Update Ad</Link>
+              <button onClick={(e) => doDelete(e, product.id, ad.adId)}>
+                Delete ad
+              </button>
             </div>
           );
         })

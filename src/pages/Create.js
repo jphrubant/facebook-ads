@@ -13,8 +13,7 @@ export const Create = (props) => {
   const doCreate = (e) => {
     e.preventDefault();
     const adId = uuid();
-    const id = product.id;
-    actions.create(id, {adId: adId, headline: state.headline, description: state.description});
+    actions.create(product.id, {adId: adId, headline: state.headline, description: state.description});
     props.history.push('/');
   };
 
